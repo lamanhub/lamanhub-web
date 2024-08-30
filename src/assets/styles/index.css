@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-gray-700 font-noto-sans;
+}
+
+.hero:before {
+  content: "";
+  background: url(/src/assets/svgs/grid.svg) repeat bottom center;
+  @apply absolute top-20 left-0 right-0 bottom-0 m-12 rounded-lg;
+}

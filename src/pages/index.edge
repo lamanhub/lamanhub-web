@@ -1,0 +1,178 @@
+@component('components/layout', { })
+
+@slot('meta')
+<meta name="description"
+  content="LamanHub is an innovative web hosting platform that integrates powerful development tools and frameworks, streamlining the entire process of website creation and deployment.">
+<meta name="keywords"
+  content="Simple web development and deployment platform, Best platform for hosting static websites, How to deploy websites with ease, Effortless website hosting for developers, Custom domain hosting made simple, Fast website deployment for web developers, Efficient web hosting with SSR support, JavaScript framework hosting platform, Web hosting with Vite and Edge.js integration, Deploy websites quickly, Easy-to-use web hosting platform, Web development platform, Simple web hosting, Fast deployment, Web hosting">
+<meta name="robots" content="index, follow">
+<meta name="og:title" content="Streamlined Development, Seamless Hosting | LamanHub">
+<meta name="og:description"
+  content="LamanHub is an innovative web hosting platform that integrates powerful development tools and frameworks, streamlining the entire process of website creation and deployment.">
+<meta name="og:image" content="https://www.idprocloud.com/api/clp74ifqg000dmkpggqmhgtb5?image=1024&amp;quality=90">
+<meta name="og:url" content="https://lamanhub.site">
+<meta name="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Streamlined Development, Seamless Hosting | LamanHub">
+<meta name="twitter:description"
+  content="LamanHub is an innovative web hosting platform that integrates powerful development tools and frameworks, streamlining the entire process of website creation and deployment.">
+<meta name="twitter:image" content="https://www.idprocloud.com/api/clp74ifqg000dmkpggqmhgtb5?image=1024&amp;quality=90">
+<meta name="og:site_name" content="LamanHub">
+@end
+
+<div class="w-full bg-white hero relative pb-20">
+  <div class="mx-auto w-full lg:w-3/5 relative p-5 lg:p-10 h-screen flex flex-col justify-center items-center pt-20">
+    <h1 class="font-montserrat font-bold text-4xl lg:text-5xl text-gray-800 text-center">
+      Streamlined Development, Seamless Hosting
+    </h1>
+    <h2 class="font-nunito font-medium text-base lg:text-xl text mt-3 text-center">
+      Seamlessly launch and manage your websites with a streamlined workflow and robust cloud hosting.
+    </h2>
+    <div
+      class="flex flex-col lg:flex-row justify-center items-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 mt-10">
+      <a href="https://app.lamanhub.site/auth/register" title="Start Deploying Using LamanHub"
+        class="py-4 px-8 bg-primary-600 rounded font-nunito text-white font-bold border-2 border-transparent hover:border-primary-800 hover:bg-primary-700 w-full lg:w-auto text-center">
+        Start Deploying
+      </a>
+      <div
+        class="flex justify-start items-center border-2 border-gray-900 rounded bg-gray-800 text-white w-full lg:w-auto">
+        <div class="py-4 pl-5 font-noto-sans-mono bg-transparent outline-none text-sm">npm init lamanjs my-web</div>
+        <button type="button" title="Copy Installation Command" class="py-4 px-5 copy-btn"
+          data-copy="npm init lamanjs my-web">
+          <iconify-icon icon="octicon:copy-24"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-primary-800 px-5 pb-16 lg:pb-20 flex flex-col justify-center items-center relative">
+  <div class="w-full lg:w-3/5 aspect-video bg-gray-100 rounded-lg shadow border border-gray-300 -mt-20 relative">
+    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+      <span class="w-20 h-20 bg-gray-500 rounded-full mb-2 animate-ping" />
+    </div>
+    <button type="button"
+      class="absolute top-0 left-0 w-full h-full text-6xl opacity-50 hover:opacity-100 text-gray-800 hover:text-primary-600"
+      title="Play LamanHub Intro Video">
+      <iconify-icon icon="bi:play-btn-fill"></iconify-icon>
+    </button>
+  </div>
+  <div
+    class="w-full lg:w-2/3 flex flex-col lg:flex-row justify-start items-start mt-16 lg:mt-20 space-y-8 lg:space-y-0 px-5">
+    @!component('components/stats', { count: "312+", title: "Websites Deployed" })
+    @!component('components/stats', { count: "67+", title: "Developers" })
+    @!component('components/stats', { count: "27+", title: "Domains Parked" })
+  </div>
+</div>
+<div class="py-16 lg:py-32 px-5 lg:px-10">
+  @component('components/heading', {
+  placeholder: "As Easy As",
+  title: "Launch your websites in just a couple steps"
+  })
+  Develop, build, and deploy your website with ease. Just a few steps, and your site is live.
+  @end
+
+  <div
+    class="px-0 lg:px-6 flex flex-col lg:flex-row justify-start items-stretch mt-16 lg:mt-20 space-x-0 space-y-12 lg:space-x-8 lg:space-y-0">
+    @component('components/step', { title: "Develop.", icon:
+    "icon-park-twotone:setting-two" })
+    Build your site locally using LamanHub’s development tools.
+    @end
+    @component('components/step', { title: "Build.", icon:
+    "icon-park-twotone:rocket" })
+    Generate the production-ready files with a simple command.
+    @end
+    @component('components/step', { title: "Deploy.", icon:
+    "icon-park-twotone:browser-safari" })
+    Upload your build, and your site goes live instantly.
+    @end
+  </div>
+</div>
+<div class="py-16 lg:py-24 px-5 lg:px-10 bg-primary-100">
+  @component('components/heading', {
+  placeholder: "Feature",
+  title: "Elevate Your Web Development"
+  })
+  LamanHub streamlines your workflow, making web development faster and easier.
+  @end
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12 mt-12 lg:mt-16 px-0 lg:px-5">
+    @component('components/feature', {
+    title: "Edge.js Template Engine",
+    icon: "icon-park-twotone:toolkit"
+    })
+    With Edge.js built into LamanHub, you can start creating dynamic templates instantly. Its
+    JavaScript-like syntax makes it super intuitive, and the flexibility is just next level.
+    @end
+    @component('components/feature', {
+    title: "Blazing-Fast Development with Vite",
+    icon: "icon-park-twotone:lightning"
+    })
+    Say goodbye to sluggish builds! LamanHub leverages Vite for ultra-fast development, complete with hot module
+    replacement (HMR).
+    @end
+    @component('components/feature', {
+    title: "Boosted SEO & Performance with SSR",
+    icon: "icon-park-twotone:rocket-one"
+    })
+    Concerned about SEO or site performance? LamanHub’s server-side rendering (SSR) has got you covered. Your sites
+    will load faster, rank higher, and provide an overall better user experience.
+    @end
+    @component('components/feature', {
+    title: "Effortless Deployment",
+    icon: "icon-park-twotone:upload-web"
+    })
+    Deployment has never been this easy. No complicated server setups, no stress. It’s designed for developers who
+    want to focus on what they do best: building great websites.
+    @end
+    @component('components/feature', {
+    title: "Your Own Subdomain",
+    icon: "icon-park-twotone:globe"
+    })
+    Every project on LamanHub comes with its own subdomain, making it super easy to share your work with clients or
+    team members. No need to worry about domain costs
+    @end
+    @component('components/feature', {
+    title: "Custom Domains Supported",
+    icon: "icon-park-twotone:copy-link"
+    })
+    Want to use your own domain? LamanHub supports custom domains too, giving your site a polished, professional
+    appearance. It’s all about making your project shine.
+    @end
+    @component('components/feature', {
+    title: "Organized Asset Management",
+    icon: "icon-park-twotone:folder-close"
+    })
+    Keep your project clean and organized with dedicated directories for static assets and dynamic pages. LamanHub
+    designed to make managing your files straightforward and efficient.
+    @end
+    @component('components/feature', {
+    title: "Seamless Integration with Modern Frameworks",
+    icon: "icon-park-twotone:code-laptop"
+    })
+    you can integrate with other modern frameworks. This flexibility means you’re free to use the tools that best suit
+    your project, without being held back by the platform.
+    @end
+  </div>
+</div>
+<div class="py-16 lg:py-24 px-5 lg:px-20 bg-primary-100">
+  <div class="bg-primary-700 rounded p-8 pb-12 pt-72 lg:p-16 flex justify-start items-start relative">
+    <div class="w-full lg:w-1/2">
+      <h3 class="text-white font-bold font-montserrat text-3xl">
+        Want to simplify your web development?
+      </h3>
+      <p class="text-gray-200 mt-3">
+        Why let complicated setups slow you down? With LamanHub, you can streamline your development and deployment,
+        focusing more on your projects and less on the infrastructure.
+      </p>
+      <a href="https://app.lamanhub.site/auth/register" title="Try LamanHub for Free"
+        class="py-4 px-8 bg-orange-700 rounded font-nunito text-white font-bold border border-white hover:bg-orange-800 inline-block mt-12">
+        Try It Free
+      </a>
+    </div>
+    <div
+      class="absolute -top-12 -left-2 bottom-auto right-auto lg:top-auto lg:left-auto lg:bottom-5 lg:right-5 w-11/12 lg:w-2/5">
+      <img src="/src/assets/svgs/rocket.svg" alt="Launch Website" title="Launch Website" class="w-full h-auto" />
+    </div>
+  </div>
+</div>
+@end

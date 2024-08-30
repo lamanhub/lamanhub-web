@@ -1,0 +1,12 @@
+<div class="flex-1 bg-gray-100 group hover:bg-gray-200 p-5 lg:p-8 lg:pt-5 rounded relative">
+    <div
+        class="text-3xl text-primary-700 w-12 h-12 bg-primary-200 flex justify-center items-center rounded transform -translate-y-8 group-hover:bg-primary-600 group-hover:text-white border border-white shadow group-hover:-translate-y-10 transition">
+        <iconify-icon icon="{{ $props.get('icon') }}"></iconify-icon>
+    </div>
+    <h4 class="font-bold text-gray-800 font-nunito text-lg flex justify-start items-center -mt-3">
+        {{ $props.get("title") }}
+    </h4>
+    <p class="mt-2">
+        {{ await $slots.main() }}
+    </p>
+</div>
