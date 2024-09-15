@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "laman run dev",
     "build": "laman build",
-    "start": "laman run prod"
+    "start": "laman run prod",
+    "deploy": "laman deploy"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,7 @@
   "devDependencies": {
     "@types/jquery": "^3.5.30",
     "autoprefixer": "^10.4.20",
-    "lamanjs": "^1.0.2",
+    "lamanjs": "^1.0.3",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10"
   },

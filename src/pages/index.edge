@@ -31,7 +31,7 @@
     <div
       class="flex flex-col lg:flex-row justify-center items-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 mt-10">
       <a href="https://app.lamanhub.site/auth/register" title="Start Deploying Using LamanHub"
-        class="py-4 px-8 bg-primary-600 rounded font-nunito text-white font-bold border-2 border-transparent hover:border-primary-800 hover:bg-primary-700 w-full lg:w-auto text-center">
+        class="py-4 px-8 bg-orange-600 rounded font-nunito text-white font-bold border-2 border-transparent hover:border-orange-800 hover:bg-orange-700 w-full lg:w-auto text-center">
         Start Deploying
       </a>
       <div
@@ -46,15 +46,10 @@
   </div>
 </div>
 <div class="bg-primary-800 px-5 pb-16 lg:pb-20 flex flex-col justify-center items-center relative">
-  <div class="w-full lg:w-3/5 aspect-video bg-gray-100 rounded-lg shadow border border-gray-300 -mt-20 relative">
-    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-      <span class="w-20 h-20 bg-gray-500 rounded-full mb-2 animate-ping" />
-    </div>
-    <button type="button"
-      class="absolute top-0 left-0 w-full h-full text-6xl opacity-50 hover:opacity-100 text-gray-800 hover:text-primary-600"
-      title="Play LamanHub Intro Video">
-      <iconify-icon icon="bi:play-btn-fill"></iconify-icon>
-    </button>
+  <div
+    class="w-full lg:w-3/5 aspect-video bg-gray-100 rounded-lg shadow border border-gray-300 -mt-20 relative overflow-hidden">
+    <img src="https://www.idprocloud.com/api/cm115fp9r002finpgf3ideeup" class="w-full h-full object-cover"
+      alt="LamanHub Project Page" title="LamanHub Project Page" />
   </div>
   <div
     class="w-full lg:w-2/3 flex flex-col lg:flex-row justify-start items-start mt-16 lg:mt-20 space-y-8 lg:space-y-0 px-5">
@@ -98,60 +93,46 @@
 
   <div class="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12 mt-12 lg:mt-16 px-0 lg:px-5">
     @component('components/feature', {
-    title: "Edge.js Template Engine",
-    icon: "icon-park-twotone:toolkit"
-    })
-    With Edge.js built into Laman.js, you can start creating dynamic templates instantly. Its
-    JavaScript-like syntax makes it super intuitive, and the flexibility is just next level.
-    @end
-    @component('components/feature', {
-    title: "Blazing-Fast Development with Vite",
-    icon: "icon-park-twotone:lightning"
-    })
-    Say goodbye to sluggish builds! Laman.js leverages Vite for ultra-fast development, complete with hot module
-    replacement (HMR).
-    @end
-    @component('components/feature', {
-    title: "Boosted SEO & Performance with SSR",
-    icon: "icon-park-twotone:rocket-one"
-    })
-    Concerned about SEO or site performance? Laman.js server-side rendering (SSR) has got you covered. Your sites
-    will load faster, rank higher, and provide an overall better user experience.
-    @end
-    @component('components/feature', {
-    title: "Effortless Deployment",
-    icon: "icon-park-twotone:upload-web"
-    })
-    Deployment has never been this easy. No complicated server setups, no stress. It’s designed for developers who
-    want to focus on what they do best: building great websites.
-    @end
-    @component('components/feature', {
-    title: "Your Own Subdomain",
-    icon: "icon-park-twotone:globe"
-    })
-    Every project on LamanHub comes with its own subdomain, making it super easy to share your work with clients or
-    team members. No need to worry about domain costs
-    @end
-    @component('components/feature', {
-    title: "Custom Domains Supported",
+    title: "Seamless Integration",
     icon: "icon-park-twotone:copy-link"
     })
-    Want to use your own domain? LamanHub supports custom domains too, giving your site a polished, professional
-    appearance. It’s all about making your project shine.
+    LamanHub offers full server-side rendering and dynamic functionality through its seamless integration with Laman.js.
+    This means you can build complex, data-driven websites without worrying about backend setup or server maintenance.
     @end
     @component('components/feature', {
-    title: "Organized Asset Management",
-    icon: "icon-park-twotone:folder-close"
+    title: "Supports Popular Client-Side Frameworks",
+    icon: "icon-park-twotone:toolkit"
     })
-    Keep your project clean and organized with dedicated directories for static assets and dynamic pages. LamanHub
-    designed to make managing your files straightforward and efficient.
+    Whether you're using jQuery, AlpineJS, or HTMX, LamanHub is optimized for lightweight client-side frameworks. This
+    flexibility ensures that your site is fast and responsive without the overhead of heavy server-side frameworks.
     @end
     @component('components/feature', {
-    title: "Seamless Integration with Modern Frameworks",
-    icon: "icon-park-twotone:code-laptop"
+    title: "Automated SSL and Secure Hosting",
+    icon: "icon-park-twotone:rocket-one"
     })
-    you can integrate with other modern frameworks. This flexibility means you’re free to use the tools that best suit
-    your project, without being held back by the platform.
+    Every website hosted on LamanHub comes with automatic SSL certificates, ensuring secure HTTPS connections for your
+    users. Your site's security is handled without any extra steps or configurations.
+    @end
+    @component('components/feature', {
+    title: "Easy Custom Domain Setup",
+    icon: "icon-park-twotone:globe"
+    })
+    LamanHub provides straightforward integration for custom domains. Whether you're using the subdomain provided by
+    LamanHub or your own domain, setup is quick and easy with full DNS support.
+    @end
+    @component('components/feature', {
+    title: "Optimized for Speed and Performance",
+    icon: "icon-park-twotone:lightning"
+    })
+    Designed with speed in mind, LamanHub ensures that both static and dynamic websites load quickly. By optimizing
+    assets and leveraging modern deployment techniques, your site will perform at its best.
+    @end
+    @component('components/feature', {
+    title: "One-Command Deployment",
+    icon: "icon-park-twotone:upload-web"
+    })
+    Simplify your development workflow with one-command deployment. Using npm run deploy, LamanHub takes care of
+    building, optimizing, and hosting your project in a matter of seconds, freeing you to focus on creating.
     @end
   </div>
 </div>
