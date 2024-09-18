@@ -11,3 +11,13 @@ body {
   background: url(/src/assets/svgs/grid.svg) repeat bottom center;
   @apply absolute top-20 left-0 right-0 bottom-0 m-12 rounded-lg;
 }
+
+.blog-head:before {
+  content: "";
+  @apply h-96 bg-primary-100 absolute top-20 left-0 w-full -z-10;
+}
+
+.blog-head:after {
+  content: "";
+  @apply absolute h-40 top-96 mt-20 left-0 w-full bg-gradient-to-b from-primary-100 to-white -z-10;
+}

@@ -1,0 +1,9 @@
+@component('components/layout', { title: $props.get("title") })
+
+@slot('meta')
+{{{ await $slots.meta() }}}
+@end
+
+@!component('components/header-blog')
+{{{ await $slots.main() }}}
+@end
