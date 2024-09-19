@@ -33,7 +33,7 @@ title: category.attributes.Name
         @each(item in posts.data)
         @!component('components/post', { title: item.attributes.Title, thumbnail:
         item.attributes.Thumbnail.data.attributes.formats.small.url, description:
-        item.attributes.Description,slug: item.attributes.slug })
+        item.attributes.Description,slug: item.attributes.slug, date: item.attributes.publishedAt })
         @end
     </div>
 </div>

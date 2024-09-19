@@ -2,6 +2,8 @@
 @let(moment = (await inject()).moment)
 @let(post = await postApi.getPostBySlug(req.params.slug).catch(() => errorPage(404)))
 
+@let(url = `https://lamanhub.site${req.path}`)
+
 @component('components/layout-blog', {
 title: post.attributes.Title
 })
@@ -20,8 +22,30 @@ title: post.attributes.Title
 <meta name="og:site_name" content="LamanHub">
 @end
 
-<div class="flex justify-center px-5 lg:px-8 py-10 lg:py-20">
-    <div class="w-full lg:w-[780px]">
+<div
+    class="flex flex-col lg:flex-row items-start justify-start lg:justify-center px-5 lg:px-8 py-10 lg:py-20 space-x-0 lg:space-x-10 relative">
+    <div
+        class="order-2 lg:order-1 flex flex-row lg:flex-col items-center lg:items-center w-auto lg:w-16 rounded bg-white border border-neutral-300 static lg:sticky top-24 left-0 mt-8 lg:mt-0.5 space-x-3 lg:space-x-0 space-y-0 lg:space-y-3 pr-3 lg:pr-0 pb-0 lg:pb-3">
+        <div
+            class="flex justify-center items-center p-3 text-2xl border-r lg:border-r-0 border-b-0 lg:border-b border-neutral-300">
+            <iconify-icon icon="tabler:share"></iconify-icon>
+        </div>
+        @!component('components/social-share', { color: "#4267B2",url:
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,name: "Facebook",icon: "bxl:facebook"
+        })
+        @!component('components/social-share', { color: "#25D366",url:
+        `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`,name: "WhatsApp",icon: "bxl:whatsapp" })
+        @!component('components/social-share', { color: "#1DA1F2",url:
+        `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.attributes.Title
+        || "")}`,name: "Twitter",icon: "bxl:twitter" })
+        @!component('components/social-share', { color: "#0a66c2",url:
+        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,name: "LinkedIn",icon:
+        "bxl:linkedin" })
+        @!component('components/social-share', { color: "#24A1DE",url:
+        `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.attributes.Title
+        || "")}`,name: "Telegram",icon: "bxl:telegram" })
+    </div>
+    <div class="order-1 lg:order-2 w-full lg:w-[780px]">
         <h1 class="mb-3 text-2xl lg:text-3xl font-bold text-primary-800 font-montserrat">{{ post.attributes.Title }}
         </h1>
         <h2 class="flex justify-start items-center space-x-3 pb-8 mb-8 border-b border-primary-200 text-sm">

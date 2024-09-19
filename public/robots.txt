@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lamanhub.site
+
+# Sitemaps
+Sitemap: https://lamanhub.site/sitemap.xml

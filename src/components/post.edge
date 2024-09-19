@@ -1,10 +1,12 @@
+@let(moment = (await inject()).moment)
+
 <div class="group relative">
     <div class="w-full aspect-video rounded overflow-hidden">
         <img src="{{ $props.get('thumbnail') }}" alt="{{ $props.get('title') }}" title="{{ $props.get('title') }}" />
     </div>
     <div class="px-1 mt-4">
         <div class="text-sm font-bold text-primary-600">
-            13 Maret 2024
+            {{ moment($props.get('date')).format('MMM DD, YYYY') }}
         </div>
         <h3 class="font-montserrat font-bold text-lg line-clamp-2 text-gray-800 group-hover:text-orange-800">
             {{ $props.get('title') }}

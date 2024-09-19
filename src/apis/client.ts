@@ -1,5 +1,7 @@
+export const baseURL = "https://cms.lamanhub.site";
+
 const client = async (endpoints: string, options: RequestInit) => {
-  const request = await fetch(`https://cms.lamanhub.site${endpoints}`, {
+  const request = await fetch(`${baseURL}${endpoints}`, {
     ...options,
     headers: {
       Authorization:

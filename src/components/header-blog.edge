@@ -11,11 +11,11 @@
             <span>
                 Category
             </span>
-            <iconify-icon icon="tabler:chevron-right" class="transform rotate-0"></iconify-icon>
+            <iconify-icon icon="tabler:chevron-right" class="transition transform rotate-0"></iconify-icon>
         </button>
     </div>
     <ul id="categories"
-        class="hidden flex-col lg:flex-row lg:flex justify-start items-start lg:justify-end lg:items-center space-x-5 mt-5 lg:ml-auto lg:mt-0 lg:mx-0 lg:pt-0 w-full lg:w-auto">
+        class="hidden flex-col lg:flex-row lg:flex justify-start items-start lg:justify-end lg:items-center mt-5 lg:ml-auto lg:mt-0 lg:mx-0 lg:pt-0 w-full lg:w-auto">
         @each(category in categories.data)
         <li class="w-full lg:w-auto">
             <a title="{{ category.attributes.Name }}"

@@ -1,7 +1,7 @@
 import client from "./client";
 
 export const getAllPost = async () => {
-  return await client("/api/posts?populate=*", {
+  return await client("/api/posts?populate=*&sort=publishedAt:desc", {
     method: "GET",
   });
 };
