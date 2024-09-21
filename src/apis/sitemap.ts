@@ -11,11 +11,11 @@ const generateSitemap = async (baseURL: string) => {
   ]);
 
   const categoriesUrls = (
-    categories.data as { attributes: { Slug: string } }[]
+    categories.data as { attributes: { slug: string } }[]
   ).map(
     (el) => `
 <url>
-  <loc>${baseURL}/blog/categories/${el.attributes.Slug}</loc>
+  <loc>${baseURL}/blog/categories/${el.attributes.slug}</loc>
   <lastmod>${lastUpdate}</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
@@ -24,12 +24,12 @@ const generateSitemap = async (baseURL: string) => {
   );
 
   const postsUrls = (
-    posts.data as { attributes: { slug: string; publishedAt: string } }[]
+    posts.data as { attributes: { slug: string; updatedAt: string } }[]
   ).map(
     (el) => `
 <url>
   <loc>${baseURL}/blog/${el.attributes.slug}</loc>
-  <lastmod>${moment(el.attributes.publishedAt).format("YYYY-MM-DD")}</lastmod>
+  <lastmod>${moment(el.attributes.updatedAt).format("YYYY-MM-DD")}</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>

@@ -21,3 +21,12 @@ body {
   content: "";
   @apply absolute h-40 top-96 mt-20 left-0 w-full bg-gradient-to-b from-primary-100 to-white -z-10;
 }
+
+.scroll-container {
+  overflow-x: auto; /* Biarkan scroll tetap bisa digunakan */
+  scrollbar-width: none; /* Untuk Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Untuk Chrome, Safari, dan Edge */
+}

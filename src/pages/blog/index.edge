@@ -1,4 +1,4 @@
-@let(postApi = (await inject()).post)
+@let(postApi = inject.post)
 @let(posts = await postApi.getAllPost())
 
 @let(featured = posts.data[0])
@@ -30,12 +30,12 @@ title: "LamanHub Blog"
         <div class="w-full flex-1 order-2 lg:order-1 mt-5 lg:mt-0 px-1">
             <div class="font-bold font-nunito text-lg lg:text-xl text-orange-700">#Featured Post</div>
             <h1 class="font-bold font-montserrat text-xl lg:text-2xl text-primary-800 group-hover:text-primary-700">{{
-                featured.attributes.Title }}</h1>
-            <p class="mt-3">{{ featured.attributes.Description }}</p>
+                featured.attributes.title }}</h1>
+            <p class="mt-3">{{ featured.attributes.description }}</p>
         </div>
         <div class="w-full lg:w-2/5 order-1 lg:order-2">
             <div class="w-full aspect-video bg-primary-200 rounded overflow-hidden border-2 border-primary-800">
-                <img src="{{ featured.attributes.Thumbnail.data.attributes.formats.small.url }}"
+                <img src="{{ featured.attributes.thumbnail.data.attributes.formats.small.url }}"
                     class="w-full h-full object-cover" />
             </div>
         </div>
@@ -50,9 +50,9 @@ title: "LamanHub Blog"
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-3 grid-flow-row gap-8">
         @each(item in posts.data.slice(1))
-        @!component('components/post', { title: item.attributes.Title, thumbnail:
-        item.attributes.Thumbnail.data.attributes.formats.small.url, description:
-        item.attributes.Description,slug: item.attributes.slug, date: item.attributes.publishedAt })
+        @!component('components/post', { title: item.attributes.title, thumbnail:
+        item.attributes.thumbnail.data.attributes.formats.small.url, description:
+        item.attributes.description,slug: item.attributes.slug, date: item.attributes.publishedAt })
         @end
     </div>
 </div>

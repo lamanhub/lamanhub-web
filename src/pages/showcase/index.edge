@@ -1,0 +1,45 @@
+@let(showcases = await inject.showcase.getAllShowcase())
+
+@component('components/layout', {
+title: "Showcase"
+})
+
+
+@slot('meta')
+<meta name="description"
+    content="Explore innovative projects built with Laman.js, showcasing its power and versatility. Get inspired by how developers transform their ideas into dynamic applications!">
+<meta name="og:title" content="Showcase">
+<meta name="og:description"
+    content="Explore innovative projects built with Laman.js, showcasing its power and versatility. Get inspired by how developers transform their ideas into dynamic applications!">
+<meta name="og:image" content="https://lamanhub.site/main.png">
+<meta name="og:url" content="https://lamanhub.site/showcase">
+<meta name="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Showcase">
+<meta name="twitter:description"
+    content="Explore innovative projects built with Laman.js, showcasing its power and versatility. Get inspired by how developers transform their ideas into dynamic applications!">
+<meta name="twitter:image" content="https://lamanhub.site/main.png">
+<meta name="og:site_name" content="LamanHub">
+@end
+
+<div class="mt-20 blog-head px-5">
+    <div class="flex flex-col items-center py-12 lg:py-20">
+        <h1 class="text-center text-2xl lg:text-5xl font-montserrat font-bold text-primary-700">Showcase</h1>
+        <p class="text-center w-full lg:w-1/2 mt-2 text-base lg:text-xl">
+            Explore innovative projects built with Laman.js.
+        </p>
+    </div>
+</div>
+<div class="flex flex-col items-center px-5 lg:px-10 mt-5 lg:mt-10 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-3 grid-flow-row gap-8">
+        @each(item in showcases.data)
+        @!component('components/showcase', {
+        title: item.attributes.name,
+        thumbnail: item.attributes.screenshots.data[0].attributes.formats.small.url,
+        description: item.attributes.description,
+        repository: item.attributes.repository
+        })
+        @end
+    </div>
+</div>
+@end

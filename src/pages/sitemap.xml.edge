@@ -1,2 +1,2 @@
-{{{ await ((await inject()).generateSitemap("https://"+req.hostname)) }}}
-{{ setHeader("Content-Type", "application/xml") }}
+{{{ await inject.generateSitemap("https://"+req.hostname) }}}
+@let(response = res.header("Content-Type", "application/xml"))

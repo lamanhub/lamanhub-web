@@ -1,19 +1,25 @@
 import client from "./client";
 
 export const getAllCategory = async () => {
-  return await client("/api/categories", {
-    method: "GET",
-  });
+  return await client.get("/api/categories").then((response) => response.data);
 };
 
 export const getCategoryBySlug = async (slug: string) => {
-  const posts = await client("/api/categories?filters[Slug][$eq]=" + slug, {
-    method: "GET",
-  });
+  const categories = await client
+    .get("/api/categories", {
+      params: {
+        filters: {
+          slug: {
+            $eq: slug,
+          },
+        },
+      },
+    })
+    .then((response) => response.data);
 
-  if (!posts.data.length) {
+  if (!categories.data.length) {
     throw new Error("Not found");
   }
 
-  return posts.data[0];
+  return categories.data[0];
 };

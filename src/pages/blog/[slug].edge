@@ -1,24 +1,24 @@
-@let(postApi = (await inject()).post)
-@let(moment = (await inject()).moment)
+@let(postApi = inject.post)
+@let(moment = inject.moment)
 @let(post = await postApi.getPostBySlug(req.params.slug).catch(() => errorPage(404)))
 
 @let(url = `https://lamanhub.site${req.path}`)
 
 @component('components/layout-blog', {
-title: post.attributes.Title
+title: post.attributes.title
 })
 
 @slot('meta')
-<meta name="description" content="{{ post.attributes.Description }}">
-<meta name="og:title" content="{{ post.attributes.Title }}">
-<meta name="og:description" content="{{ post.attributes.Description }}">
-<meta name="og:image" content="{{ post.attributes.Thumbnail.data.attributes.formats.large.url }}">
+<meta name="description" content="{{ post.attributes.description }}">
+<meta name="og:title" content="{{ post.attributes.title }}">
+<meta name="og:description" content="{{ post.attributes.description }}">
+<meta name="og:image" content="{{ post.attributes.thumbnail.data.attributes.formats.large.url }}">
 <meta name="og:url" content="https://lamanhub.site{{ req.path }}">
 <meta name="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ post.attributes.Title }}">
-<meta name="twitter:description" content="{{ post.attributes.Description }}">
-<meta name="twitter:image" content="{{ post.attributes.Thumbnail.data.attributes.formats.large.url }}">
+<meta name="twitter:title" content="{{ post.attributes.title }}">
+<meta name="twitter:description" content="{{ post.attributes.description }}">
+<meta name="twitter:image" content="{{ post.attributes.thumbnail.data.attributes.formats.large.url }}">
 <meta name="og:site_name" content="LamanHub">
 @end
 
@@ -36,36 +36,36 @@ title: post.attributes.Title
         @!component('components/social-share', { color: "#25D366",url:
         `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`,name: "WhatsApp",icon: "bxl:whatsapp" })
         @!component('components/social-share', { color: "#1DA1F2",url:
-        `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.attributes.Title
+        `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.attributes.title
         || "")}`,name: "Twitter",icon: "bxl:twitter" })
         @!component('components/social-share', { color: "#0a66c2",url:
         `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,name: "LinkedIn",icon:
         "bxl:linkedin" })
         @!component('components/social-share', { color: "#24A1DE",url:
-        `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.attributes.Title
+        `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.attributes.title
         || "")}`,name: "Telegram",icon: "bxl:telegram" })
     </div>
     <div class="order-1 lg:order-2 w-full lg:w-[780px]">
-        <h1 class="mb-3 text-2xl lg:text-3xl font-bold text-primary-800 font-montserrat">{{ post.attributes.Title }}
+        <h1 class="mb-3 text-2xl lg:text-3xl font-bold text-primary-800 font-montserrat">{{ post.attributes.title }}
         </h1>
         <h2 class="flex justify-start items-center space-x-3 pb-8 mb-8 border-b border-primary-200 text-sm">
-            <a href="/blog/categories/{{ post.attributes.category.data.attributes.Slug }}" title="{{
-                post.attributes.category.data.attributes.Name }}"
+            <a href="/blog/categories/{{ post.attributes.category.data.attributes.slug }}" title="{{
+                post.attributes.category.data.attributes.name }}"
                 class="font-bold bg-transparent border border-orange-700 text-orange-900 rounded py-2 px-3 text-sm font-nunito hover:bg-orange-700 hover:text-white flex justify-center items-center space-x-2">
                 <iconify-icon icon="tabler:tag"></iconify-icon>
                 <span>
                     {{
-                    post.attributes.category.data.attributes.Name }}
+                    post.attributes.category.data.attributes.name }}
                 </span>
             </a>
             <span>{{ moment(post.attributes.publishedAt).format("MMMM DD, YYYY") }}</span>
         </h2>
         <div class="w-full aspect-video rounded overflow-hidden">
-            <img src="{{ post.attributes.Thumbnail.data.attributes.formats.large.url }}"
-                class="w-full h-full object-cover" alt="{{ post.attributes.Thumbnail.data.attributes.alternativeText }}"
-                title="{{ post.attributes.Thumbnail.data.attributes.alternativeText }}" />
+            <img src="{{ post.attributes.thumbnail.data.attributes.formats.large.url }}"
+                class="w-full h-full object-cover" alt="{{ post.attributes.thumbnail.data.attributes.alternativeText }}"
+                title="{{ post.attributes.thumbnail.data.attributes.alternativeText }}" />
         </div>
-        <div class="prose max-w-full mt-8">{{{ post.attributes.Body }}}</div>
+        <div class="prose max-w-full mt-8">{{{ post.attributes.body }}}</div>
     </div>
 </div>
 @end

@@ -1,4 +1,4 @@
-@let(categoryApi = (await inject()).category)
+@let(categoryApi = inject.category)
 @let(categories = await categoryApi.getAllCategory())
 
 <div class="mt-20 border-b border-primary-200 px-5 lg:px-10 flex flex-col lg:flex-row items-center blog-head py-4">
@@ -18,9 +18,9 @@
         class="hidden flex-col lg:flex-row lg:flex justify-start items-start lg:justify-end lg:items-center mt-5 lg:ml-auto lg:mt-0 lg:mx-0 lg:pt-0 w-full lg:w-auto">
         @each(category in categories.data)
         <li class="w-full lg:w-auto">
-            <a title="{{ category.attributes.Name }}"
+            <a title="{{ category.attributes.name }}"
                 class="block py-3 px-0 lg:px-5 rounded bg-transparent hover:bg-primary-200 font-nunito uppercase text-sm text-primary-700 font-bold"
-                href="/blog/categories/{{ category.attributes.Slug }}">{{ category.attributes.Name }}</a>
+                href="/blog/categories/{{ category.attributes.slug }}">{{ category.attributes.name }}</a>
         </li>
         @end
     </ul>

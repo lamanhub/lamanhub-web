@@ -1,22 +1,24 @@
-@let(categoryApi = (await inject()).category)
-@let(postApi = (await inject()).post)
-@let(category = await categoryApi.getCategoryBySlug(req.params.slug).catch(() => errorPage(404)))
+@let(categoryApi = inject.category)
+@let(postApi = inject.post)
+@let(category = await categoryApi.getCategoryBySlug(req.params.slug).catch((e) => {
+errorPage(404)
+}))
 @let(posts = await postApi.getPostByCategory(category.id))
 
 @component('components/layout-blog', {
-title: category.attributes.Name
+title: category.attributes.name
 })
 @slot('meta')
 <meta name="description"
     content="Stay updated with the latest web development tips, hosting solutions, and insights on seamless project deployment. Discover streamlined workflows and best practices for launching websites effortlessly on LamanHub.">
-<meta name="og:title" content="{{ category.attributes.Name }}">
+<meta name="og:title" content="{{ category.attributes.name }}">
 <meta name="og:description"
     content="Stay updated with the latest web development tips, hosting solutions, and insights on seamless project deployment. Discover streamlined workflows and best practices for launching websites effortlessly on LamanHub.">
 <meta name="og:image" content="https://lamanhub.site/main.png">
 <meta name="og:url" content="https://lamanhub.site{{ req.path }}">
 <meta name="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ category.attributes.Name }}">
+<meta name="twitter:title" content="{{ category.attributes.name }}">
 <meta name="twitter:description"
     content="Stay updated with the latest web development tips, hosting solutions, and insights on seamless project deployment. Discover streamlined workflows and best practices for launching websites effortlessly on LamanHub.">
 <meta name="twitter:image" content="https://lamanhub.site/main.png">
@@ -25,15 +27,15 @@ title: category.attributes.Name
 
 <div class="flex flex-col items-center px-5 lg:px-10 mt-10 lg:mt-20 mb-8">
     <div class="w-full">
-        <h1 class="font-bold text-2xl lg:text-3xl font-montserrat text-primary-800">#{{ category.attributes.Name }}</h1>
+        <h1 class="font-bold text-2xl lg:text-3xl font-montserrat text-primary-800">#{{ category.attributes.name }}</h1>
     </div>
 </div>
 <div class="flex flex-col items-center px-5 lg:px-10 mt-5 lg:mt-10 pb-20">
     <div class="grid grid-cols-1 lg:grid-cols-3 grid-flow-row gap-8">
         @each(item in posts.data)
-        @!component('components/post', { title: item.attributes.Title, thumbnail:
-        item.attributes.Thumbnail.data.attributes.formats.small.url, description:
-        item.attributes.Description,slug: item.attributes.slug, date: item.attributes.publishedAt })
+        @!component('components/post', { title: item.attributes.title, thumbnail:
+        item.attributes.thumbnail.data.attributes.formats.small.url, description:
+        item.attributes.description,slug: item.attributes.slug, date: item.attributes.publishedAt })
         @end
     </div>
 </div>

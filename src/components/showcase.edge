@@ -1,18 +1,13 @@
-@let(moment = inject.moment)
-
 <div class="group relative">
     <div class="w-full aspect-video rounded overflow-hidden">
         <img src="{{ $props.get('thumbnail') }}" alt="{{ $props.get('title') }}" title="{{ $props.get('title') }}" />
     </div>
     <div class="px-1 mt-4">
-        <div class="text-sm font-bold text-primary-600">
-            {{ moment($props.get('date')).format('MMM DD, YYYY') }}
-        </div>
         <h3 class="font-montserrat font-bold text-lg line-clamp-2 text-gray-800 group-hover:text-orange-800">
             {{ $props.get('title') }}
         </h3>
         <p class="line-clamp-3 mt-2">{{ $props.get('description') }}</p>
     </div>
-    <a href="/blog/{{ $props.get('slug') }}" title="{{ $props.get('title') }}"
+    <a href="/showcase/{{ $props.get('repository') }}" title="{{ $props.get('title') }}"
         class="w-full h-full absolute top-0 left-0"></a>
 </div>

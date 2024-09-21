@@ -1,0 +1,96 @@
+@let(showcase = await inject.showcase.getShowcaseByRepository(`${req.params.owner}/${req.params.project}`))
+
+@component('components/layout', {
+title: "Showcase"
+})
+
+@slot('meta')
+<meta name="description" content="{{ showcase.info.attributes.description }}">
+<meta name="og:title" content="{{ showcase.info.attributes.name }}">
+<meta name="og:description" content="{{ showcase.info.attributes.description }}">
+<meta name="og:image" content="{{ showcase.info.attributes.screenshots.data[0].attributes.formats.large.url }}">
+<meta name="og:url" content="https://lamanhub.site{{ req.path }}">
+<meta name="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ showcase.info.attributes.name }}">
+<meta name="twitter:description" content="{{ showcase.info.attributes.description }}">
+<meta name="twitter:image" content="{{ showcase.info.attributes.screenshots.data[0].attributes.formats.large.url }}">
+<meta name="og:site_name" content="LamanHub">
+@end
+
+<div
+    class="bg-primary-200 mt-20 px-5 lg:px-20 pt-16 lg:pt-20 pb-32 lg:pb-40 flex flex-col lg:flex-row justify-start items-start space-x-0 space-y-5 lg:space-x-10 lg:space-y-0">
+    <div class="flex-1 w-full lg:w-auto">
+        <h1 class="font-bold text-3xl text-gray-800">{{ showcase.info.attributes.name }}</h1>
+        <h2 class="flex items-center justify-start space-x-2">
+            <iconify-icon icon="mingcute:user-4-line"></iconify-icon>
+            <span>
+                by {{ showcase.github.owner.login }}
+            </span>
+        </h2>
+        <p class="text-gray-700 text-base lg:text-lg mt-4">{{ showcase.info.attributes.description }}</p>
+    </div>
+    <div class="w-full lg:w-1/3">
+        <div class="flex justify-start items-center border-2 border-gray-900 rounded bg-gray-800 text-white w-full">
+            <div class="pl-5 font-noto-sans-mono bg-transparent outline-none text-sm flex-1 line-clamp-1">
+                npm init lamanjs my-web -- -s {{ req.params.owner }}/{{ req.params.project }}
+            </div>
+            <button type="button" title="Copy Installation Command" class="py-4 px-5 copy-btn"
+                data-copy="npm init lamanjs my-web -- -s {{ req.params.owner }}/{{ req.params.project }}">
+                <iconify-icon icon="octicon:copy-24"></iconify-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="px-5 lg:px-20 -mt-20">
+    <div class="flex justify-start items-center pb-12 space-x-5 w-full overflow-auto scroll-container">
+        @each(item in showcase.info.attributes.screenshots.data)
+        <div class="h-64 aspect-video bg-gray-200 rounded overflow-hidden">
+            <img src="{{ item.attributes.formats.large.url }}" alt="{{ showcase.info.attributes.name }}"
+                title="{{ showcase.info.attributes.name }}" class="w-full h-full object-cover" />
+        </div>
+        @end
+    </div>
+</div>
+<div
+    class="pb-12 flex flex-col lg:flex-row justify-start items-start space-x-0 space-y-5 lg:space-x-8 lg:space-y-0 px-5 lg:px-20">
+    <div class="flex-1 w-full lg:w-auto">
+        <div class="prose max-w-full">
+            {{{ inject.md.render(showcase.readme) }}}
+        </div>
+    </div>
+    <div class="w-full lg:w-1/3 border rounded p-5">
+        <div class="border-b pb-5 mb-5">
+            <label class="text-sm font-bold text-gray-600">Repository</label>
+            <div class="mt-1">
+                <a href="https://github.com/{{ req.params.owner }}/{{ req.params.project }}">https://github.com/{{
+                    req.params.owner }}/{{ req.params.project }}</a>
+            </div>
+        </div>
+        <div class="border-b pb-5 mb-5">
+            <label class="text-sm font-bold text-gray-600">Stars</label>
+            <div class="mt-1">
+                {{ showcase.github.stargazers_count }}
+            </div>
+        </div>
+        <div class="border-b pb-5 mb-5">
+            <label class="text-sm font-bold text-gray-600">License</label>
+            <div class="mt-1">
+                {{ showcase.github.license.name }}
+            </div>
+        </div>
+        <div class="border-b pb-5 mb-5">
+            <label class="text-sm font-bold text-gray-600">Size</label>
+            <div class="mt-1">
+                {{ inject.formatBytes(showcase.github.size) }}
+            </div>
+        </div>
+        <div class="border-b pb-5 mb-5">
+            <label class="text-sm font-bold text-gray-600">Open Issues</label>
+            <div class="mt-1">
+                {{ showcase.github.open_issues_count }}
+            </div>
+        </div>
+    </div>
+</div>
+@end
